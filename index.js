@@ -9,22 +9,3 @@ glob(`${__dirname}/bot/**/*.js`, (err, files) => {
   });
 });
 
-var Botkit = require('botkit');
-
-if (!process.env.token) {
-  console.log('Error: Specify token in environment');
-  process.exit(1);
-}
-
-var controller = Botkit.slackbot({
- debug: false
-});
-
-controller.spawn({
-  token: process.env.token
-}).startRTM(function(err) {
-  if (err) {
-    throw new Error(err);
-  }
-});
-
